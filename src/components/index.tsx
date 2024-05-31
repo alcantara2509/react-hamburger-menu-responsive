@@ -1,4 +1,4 @@
-import "./styles.css";
+import React from "react";
 export function HamburgerMenu({
   barsColor = "black",
   closeColor = "white",
@@ -20,18 +20,26 @@ export function HamburgerMenu({
     <>
       <button onClick={() => setTrigger(!trigger)} className="relative z-[100]">
         <div
-          className="bars top-bar"
           style={{
             backgroundColor: trigger ? closeColor : barsColor,
             rotate: trigger ? "45deg" : "0deg",
-            position: trigger ? "absolute" : "",
+            position: trigger ? "absolute" : "static",
+            transitionDuration: "0.5s",
+            width: "28px",
+            height: "3px",
+            borderRadius: "50px",
+            zIndex: "10",
           }}
         />
         <div
-          className="bars middle-bar"
           style={{
             backgroundColor: barsColor,
             display: trigger ? "none" : "",
+            width: "28px",
+            height: "3px",
+            borderRadius: "50px",
+            zIndex: "10",
+            margin: "4px 0",
           }}
         />
         <div
@@ -39,14 +47,23 @@ export function HamburgerMenu({
           style={{
             backgroundColor: trigger ? closeColor : barsColor,
             rotate: trigger ? "-45deg" : "0deg",
+            width: "28px",
+            height: "3px",
+            borderRadius: "50px",
+            zIndex: "10",
+            transitionDuration: "0.5s",
           }}
         />
       </button>
       <div
-        className="container"
         style={{
           top: trigger ? "0px" : "-100%",
           backgroundColor: backgroundColor,
+          width: "100vw",
+          height: "300px",
+          position: "absolute",
+          left: "0",
+          transitionDuration: "0.5s",
         }}
       >
         <div style={childrenStyle}>{children}</div>
