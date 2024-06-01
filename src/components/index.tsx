@@ -50,13 +50,13 @@ export function HamburgerMenu({
         <div
           style={{
             backgroundColor: trigger ? closeColor : barsColor,
-            rotate: trigger ? "45deg" : "0deg",
-            position: trigger ? "absolute" : "static",
-            transitionDuration: "0.5s",
-            width: "28px",
-            height: "3px",
             borderRadius: "50px",
+            height: "3px",
+            position: trigger ? "absolute" : "static",
+            rotate: trigger ? "45deg" : "0deg",
+            transitionDuration: "0.5s",
             zIndex: "10",
+            width: "28px",
           }}
         />
         <div
@@ -74,13 +74,13 @@ export function HamburgerMenu({
           className="bars down-bar"
           style={{
             backgroundColor: trigger ? closeColor : barsColor,
-            rotate: trigger ? "-45deg" : "0deg",
-            width: "28px",
-            height: "3px",
             borderRadius: "50px",
-            zIndex: "10",
-            transitionDuration: "0.5s",
+            height: "3px",
             marginBottom: trigger ? "4px" : 0,
+            rotate: trigger ? "-45deg" : "0deg",
+            transitionDuration: "0.5s",
+            zIndex: "10",
+            width: "28px",
           }}
         />
       </button>
@@ -92,6 +92,7 @@ export function HamburgerMenu({
           position: "absolute",
           left: "0",
           transitionDuration: "0.5s",
+          zIndex: "1",
         }}
       >
         <div style={childrenStyle}>{children}</div>

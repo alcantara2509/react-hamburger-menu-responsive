@@ -16,7 +16,7 @@ export default [
       {
         file: packageJson.main,
         format: "esm",
-        sourcemap: true,
+        sourcemap: false,
       },
     ],
     plugins: [
@@ -33,7 +33,7 @@ export default [
   },
   {
     input: "dist/cjs/types/src/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm", sourcemap: true }],
+    output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts.default(), peerDepsExternal(), resolve(), commonjs()],
     external: ["react", "react-dom"],
   },
