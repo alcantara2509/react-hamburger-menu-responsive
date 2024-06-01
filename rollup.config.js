@@ -33,8 +33,8 @@ export default [
   },
   {
     input: "dist/cjs/types/src/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts.default()],
-    external: [/\.css$/],
+    output: [{ file: "dist/index.d.ts", format: "esm", sourcemap: true }],
+    plugins: [dts.default(), peerDepsExternal(), resolve(), commonjs()],
+    external: ["react", "react-dom"],
   },
 ];

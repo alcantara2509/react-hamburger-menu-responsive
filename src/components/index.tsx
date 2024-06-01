@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export function HamburgerMenu({
   barsColor = "black",
@@ -19,8 +19,33 @@ export function HamburgerMenu({
   childrenStyle?: React.CSSProperties;
   breakPoint?: number;
 }) {
+  const [windowWidth, setWindowWidth] = useState(window?.innerWidth);
+
+  useEffect(() => {
+    if (!window) return;
+    const handleResize = () => {
+      setWindowWidth(window?.innerWidth);
+    };
+
+    window?.addEventListener("resize", handleResize);
+
+    return () => {
+      window?.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleBreakPoint = () => {
+    if (!windowWidth) return "";
+
+    if (windowWidth >= breakPoint) {
+      return "none";
+    }
+
+    return "";
+  };
+
   return (
-    <div style={window?.innerWidth > breakPoint ? { display: "none" } : {}}>
+    <div style={{ display: handleBreakPoint() }}>
       <button onClick={() => setTrigger(!trigger)} className="relative z-[100]">
         <div
           style={{
