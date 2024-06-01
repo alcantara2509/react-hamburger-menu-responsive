@@ -25,6 +25,7 @@ react-hamburger-menu-responsive
   trigger={trigger}
   setTrigger={setTrigger}
   backgroundColor="#3C617A"
+  breakPoint={768}
   childrenStyle={
     {
       // your styles
@@ -53,12 +54,14 @@ export function Header() {
         trigger={trigger}
         setTrigger={setTrigger}
         backgroundColor="#3C617A"
+        breakPoint={768}
         childrenStyle={{
           marginTop: "100px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           width: "100%",
+          paddingBottom: "50px",
         }}
       >
         <button className="buttons">

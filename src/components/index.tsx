@@ -1,4 +1,5 @@
 import React from "react";
+
 export function HamburgerMenu({
   barsColor = "black",
   closeColor = "white",
@@ -7,6 +8,7 @@ export function HamburgerMenu({
   backgroundColor = "black",
   children,
   childrenStyle,
+  breakPoint = 768,
 }: {
   barsColor?: string;
   closeColor?: string;
@@ -15,9 +17,24 @@ export function HamburgerMenu({
   backgroundColor?: string;
   children?: React.ReactNode;
   childrenStyle?: React.CSSProperties;
+  breakPoint?: number;
 }) {
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <>
+    <div style={{ display: windowWidth >= breakPoint ? "none" : "" }}>
       <button onClick={() => setTrigger(!trigger)} className="relative z-[100]">
         <div
           style={{
@@ -60,7 +77,6 @@ export function HamburgerMenu({
           top: trigger ? "0px" : "-100%",
           backgroundColor: backgroundColor,
           width: "100vw",
-          height: "300px",
           position: "absolute",
           left: "0",
           transitionDuration: "0.5s",
@@ -68,6 +84,6 @@ export function HamburgerMenu({
       >
         <div style={childrenStyle}>{children}</div>
       </div>
-    </>
+    </div>
   );
 }

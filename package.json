@@ -1,6 +1,6 @@
 {
   "name": "react-hamburger-menu-responsive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable and responsive hamburger menu for React",
   "main": "dist/cjs/index.js",
   "files": [
