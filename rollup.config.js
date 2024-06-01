@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import postcss from "rollup-plugin-postcss";
 
 //NEW
 import terser from "@rollup/plugin-terser";
@@ -25,6 +26,10 @@ export default [
       peerDepsExternal(),
 
       resolve(),
+      postcss({
+        extract: true,
+        minimize: true,
+      }),
       commonjs(),
 
       // NEW
@@ -35,6 +40,6 @@ export default [
     input: "dist/cjs/types/src/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts.default(), peerDepsExternal(), resolve(), commonjs()],
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom", /\.css$/],
   },
 ];

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles.css";
 
 export function HamburgerMenu({
   barsColor = "black",
@@ -63,18 +64,17 @@ export function HamburgerMenu({
           }}
         />
         <div
+          className="middle-bar"
           style={{
             backgroundColor: barsColor,
             display: trigger ? "none" : "",
             width: "28px",
             height: "3px",
             borderRadius: "50px",
-            zIndex: "10",
             margin: "4px 0",
           }}
         />
         <div
-          className="bars down-bar"
           style={{
             backgroundColor: trigger ? closeColor : barsColor,
             borderRadius: "50px",

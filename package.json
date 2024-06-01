@@ -1,6 +1,6 @@
 {
   "name": "react-hamburger-menu-responsive",
-  "version": "1.1.4",
+  "version": "1.1.8",
   "description": "A customizable and responsive hamburger menu for React",
   "main": "dist/cjs/index.js",
   "files": [
@@ -39,5 +39,8 @@
   },
   "peerDependencies": {
     "react": "^18.3.1"
+  },
+  "dependencies": {
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }
