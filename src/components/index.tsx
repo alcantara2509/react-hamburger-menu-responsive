@@ -19,22 +19,33 @@ export function HamburgerMenu({
   childrenStyle?: React.CSSProperties;
   breakPoint?: number;
 }) {
-  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = React.useState(window?.innerWidth);
 
   React.useEffect(() => {
+    if (!window) return;
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(window?.innerWidth);
     };
 
-    window.addEventListener("resize", handleResize);
+    window?.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window?.removeEventListener("resize", handleResize);
     };
   }, []);
 
+  const handleBreakPoint = () => {
+    if (!windowWidth) return "";
+
+    if (windowWidth >= breakPoint) {
+      return "none";
+    }
+
+    return "";
+  };
+
   return (
-    <div style={{ display: windowWidth >= breakPoint ? "none" : "" }}>
+    <div style={{ display: handleBreakPoint() }}>
       <button onClick={() => setTrigger(!trigger)} className="relative z-[100]">
         <div
           style={{
@@ -69,6 +80,7 @@ export function HamburgerMenu({
             borderRadius: "50px",
             zIndex: "10",
             transitionDuration: "0.5s",
+            marginBottom: trigger ? "4px" : 0,
           }}
         />
       </button>

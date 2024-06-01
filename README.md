@@ -7,7 +7,7 @@ react-hamburger-menu-responsive
 
 <img src="https://github.com/alcantara2509/react-hamburger-menu-responsive/blob/main/react-hamburger-menu-responsive.gif" width="240" height="560" />
 
-# Instalation
+# Installation
 
 ```npm i react-hamburger-menu-responsive```
 
@@ -36,7 +36,7 @@ react-hamburger-menu-responsive
 </HamburgerMenu>
 ```
 
-# Exemple
+# Example
 
 ```
 import { useState } from "react";
