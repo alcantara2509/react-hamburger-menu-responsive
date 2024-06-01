@@ -5,7 +5,7 @@ react-hamburger-menu-responsive
 
 ***A customizable and responsive hamburger menu for React Js.***
 
-<img src="https://github.com/alcantara2509/react-hamburger-menu-responsive/blob/main/react-hamburger-menu-responsive.gif" width="240" height="560" />
+<img src="https://github.com/alcantara2509/react-hamburger-menu-responsive/blob/main/react-hamburger-menu-responsive.gif" width="240" height="360" />
 
 # Installation
 

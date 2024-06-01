@@ -46,7 +46,10 @@ export function HamburgerMenu({
 
   return (
     <div style={{ display: handleBreakPoint() }}>
-      <button onClick={() => setTrigger(!trigger)} className="relative z-[100]">
+      <button
+        onClick={() => setTrigger(!trigger)}
+        style={{ position: "relative", zIndex: 100 }}
+      >
         <div
           style={{
             backgroundColor: trigger ? closeColor : barsColor,
